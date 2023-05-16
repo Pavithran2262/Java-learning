@@ -1,4 +1,4 @@
-package oops;
+package oops.Inheritance;
 
   class Vehicle {
         protected String brand;

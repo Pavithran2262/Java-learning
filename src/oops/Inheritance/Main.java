@@ -1,4 +1,7 @@
-package oops;
+package oops.Inheritance;
+
+import oops.Inheritance.Car;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("program started");
