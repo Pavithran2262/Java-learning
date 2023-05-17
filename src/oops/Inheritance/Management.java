@@ -4,9 +4,9 @@ public class Management {
     public static void main(String[] args) {
         Manager m1 = new Manager("kumar",50000.0,10000);
         m1.raisesalary(10);
-        if(m1 instanceof Manager) {
+//        if(m1 instanceof Manager) {
             System.out.println(m1.getsalary());
-        }
+
         System.out.println(m1.getname());
         Employee e1 = new Employee("bala",5000);
         e1.setname("babu");
