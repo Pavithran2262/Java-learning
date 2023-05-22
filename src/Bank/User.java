@@ -2,7 +2,10 @@ package Bank;
 
 import java.lang.reflect.Array;
 import java.util.*;
-public class User extends Main{
+
+//import static Bank.Main.list;
+
+public class User extends Main {
     private String name ;
     private double ac_no ;
     private String password;
@@ -15,6 +18,7 @@ public class User extends Main{
     static {
         count = 0;
     }
+    //this User Constructor used to initialize the user object with proper information
     public User(String accountHolderName , String passwordd , double inibal) {
         this.ac_no = random();
         this.name = accountHolderName;
@@ -26,6 +30,8 @@ public class User extends Main{
         System.out.println("Hi "+this.getname()+" your Account number is "+this.getac_no()+"\nYour current Balance is "+this.getBalance() );
         this.history.add("Initial Amount of " + inibal+" Deposited ");
     }
+
+    //Random method generate the random account number and verify that number didnt own by existing customer
     double random(){
         int f=0;
         double result=-1;
@@ -49,33 +55,48 @@ public class User extends Main{
 
         return result;
     }
+
+    //getac_no() used to get the Account number
     public int getac_no(){
         return (int)Math.round(ac_no);
     }
+
+    //getname() used to get the Account holder name
     public String getname(){
         return name;
     }
+
+    //getbalance() used to get the balance of the Account
     public double getBalance(){
         return balance;
     }
+
+    //getIndex() used to get the index number through that we can get the particular user
     public int getIndex(){
         return index;
     }
+
+    //getpassword() is used to get password for verify the customer while login
     public String getPassword() {
         return password;
     }
 
+    //This deposit method used to deposit the amount to customer account
     public void deposit(double money){
         this.balance +=money;
         history.add("Deposited: " + money);
         System.out.println("The amount of "+money +" is Deposited Successfully");
     }
+
+    //This deposit method used to withdraw the amount to customer account
     public void withdraw(double money){
         this.balance-=money;
         history.add("Withdrawal: " + money);
         System.out.println("The amount of "+money +" is Withdrawal Successfully");
 
     }
+
+    //This deposit method used to Tranfer the amount from one customer to another account
     public void transfer(User a ,double money){
         this.balance -=money;
         a.balance+=money;
@@ -85,6 +106,8 @@ public class User extends Main{
 //    public List<String> getTransactionHistory() {
 //        return history;
 //    }
+
+    //This method getTransactionHistory() used to show the transaction detail done by customer
 public void getTransactionHistory() {
     for (String state:history) {
         System.out.println(state);
