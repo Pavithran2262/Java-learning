@@ -1,4 +1,5 @@
 package Bank;
+import java.sql.SQLException;
 import java.util.*;
 //import java.util.ArrayList;
 //import java.util.InputMismatchException;
@@ -11,6 +12,7 @@ import java.lang.*;
  logged into account and they are allowed to do Withdraw ,deposit and transfer Actions*/
 public class Main {
     public static ArrayList<User> list = new ArrayList<>();
+
 
     public static void main(String[] args) {
         System.out.println("Banking Application...");
@@ -101,7 +103,11 @@ public class Main {
             } while (inibal < 2500);
 //            us2.deposit(inibal);
 //            User user1 = new User(uname,pwd,inibal);
-            list.add(new User(uname, pwd, inibal));
+            try {
+                list.add(new User(uname, pwd, inibal));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             System.out.println("Now you can login ");
             existingUser();
         }

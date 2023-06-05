@@ -1,11 +1,22 @@
 package Bank;
 
 import java.lang.reflect.Array;
+import java.sql.Connection;
+import java.sql.*;
 import java.util.*;
 
 //import static Bank.Main.list;
 
 public class User extends Main {
+//    String url = "jdbc:mysql://localhost:3306/Banking";
+//    String system_name = "root";
+//    String passvord = "Postgresql@123";
+//
+//    Connection con = DriverManager.getConnection(url,system_name,passvord);
+//    Statement st = con.createStatement();
+
+
+
     private String name ;
     private double ac_no ;
     private String password;
@@ -19,7 +30,7 @@ public class User extends Main {
         count = 0;
     }
     //this User Constructor used to initialize the user object with proper information
-    public User(String accountHolderName , String passwordd , double inibal) {
+    public User(String accountHolderName , String passwordd , double inibal) throws SQLException {
         this.ac_no = random();
         this.name = accountHolderName;
         this.password = passwordd;
@@ -29,6 +40,8 @@ public class User extends Main {
         count ++;
         System.out.println("Hi "+this.getname()+" your Account number is "+this.getac_no()+"\nYour current Balance is "+this.getBalance() );
         this.history.add("Initial Amount of " + inibal+" Deposited ");
+//        String query = "append into customer history1 values(Initial Amount of " + inibal+" Deposited )";
+//        ResultSet rs= st.executeQuery(query);
     }
 
     //Random method generate the random account number and verify that number didnt own by existing customer
